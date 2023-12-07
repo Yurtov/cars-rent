@@ -3,14 +3,24 @@ import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
   width: 100%;
-  height: 55px;
-  background: #efefef;
-  font-size: 18px;
-  font-weight: 600;
+  height: 60px;
+  background: #3470ff;
   display: flex;
-  border-bottom: 1px solid #000;
+  align-items: center;
+  border-bottom: 1px solid #121417;
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+`;
+
+export const Container = styled.div`
+  margin: 0 auto;
+  width: 1280px;
+  padding-left: 100px;
+  padding-right: 100px;
+  font-size: 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
 `;
 
 export const Nav = styled.nav`
@@ -25,9 +35,26 @@ export const ListNav = styled.ul`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: #000;
+  color: #ffffff;
+  font-weight: 900;
+  -webkit-text-stroke: 0.3px #121417;
+  text-shadow: 1px 1px 1px #121417;
 
   &.active {
-    color: #3470FF;
+    color: #121417;
+    -webkit-text-stroke: 0.3px #ffffff;
   }
+`;
+
+export const ContactList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;  
+  font-size: 18px;
+  font-style: italic;
+`;
+
+export const ContactLink = styled.a`
+  text-decoration: none;
+  color: #ffffff;
 `;
