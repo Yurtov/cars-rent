@@ -7,7 +7,7 @@ const Catalog = () => {
       <div>
         <ul>
           <li>
-            <img></img>
+            <img alt="img"></img>
             <div>
               <p>Car model</p>
               <p>price</p>
