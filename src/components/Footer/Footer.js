@@ -9,7 +9,7 @@ export const Footer = () => {
         </li>
         <li>
           <p>Phone:</p>
-          <a href="tel:+31234567890">+3(123)456-78-90</a>
+          <a href="tel:+380730000000">+38(073)000-00-00</a>
         </li>
       </ul>
     </footer>

@@ -1,29 +1,16 @@
+import { AdvertsList } from 'components/AdvertsList/AdvertsList';
+import { Footer } from 'components/Footer/Footer';
+import { SearchForm } from 'components/SearchForm/SearchForm';
+import { Container } from 'components/SharedLayout/SharedLayout.styled';
+
 const Catalog = () => {
   return (
-    <>
-      <form>
-        <input></input>
-      </form>
-      <div>
-        <ul>
-          <li>
-            <img alt="img"></img>
-            <div>
-              <p>Car model</p>
-              <p>price</p>
-            </div>
-            <ul>
-              <li>tags</li>
-            </ul>
-            <button>Learn more</button>
-          </li>
-        </ul>
-        <button>Load more</button>
-      </div>
+    <Container>
+      <SearchForm />
+      <AdvertsList />
 
-      <footer></footer>
-      <modal></modal>
-    </>
+      <Footer />
+    </Container>
   );
 };
 

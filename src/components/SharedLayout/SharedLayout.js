@@ -4,6 +4,7 @@ import {
   ContactLink,
   ContactList,
   Container,
+  ContainerHeader,
   Header,
   ListNav,
   Nav,
@@ -15,35 +16,41 @@ export const SharedLayout = () => {
     <div>
       <Header>
         <Container>
-          <NavLink to="/">
-            <img
-              src="https://fontmeme.com/permalink/231207/0bf71085da3f0627ad58f1db8911a0aa.png"
-              alt="logo"
-              border="0"
-            />
-          </NavLink>
+          <ContainerHeader>
+            <NavLink to="/">
+              <img
+                src="https://fontmeme.com/permalink/231207/0bf71085da3f0627ad58f1db8911a0aa.png"
+                alt="logo"
+                border="0"
+              />
+            </NavLink>
 
-          <Nav>
-            <ListNav>
+            <Nav>
+              <ListNav>
+                <li>
+                  <StyledNavLink to="/">Home</StyledNavLink>
+                </li>
+                <li>
+                  <StyledNavLink to="/catalog">Catalog</StyledNavLink>
+                </li>
+                <li>
+                  <StyledNavLink to="/favorites">Favorites</StyledNavLink>
+                </li>
+              </ListNav>
+            </Nav>
+            <ContactList>
               <li>
-                <StyledNavLink to="/">Home</StyledNavLink>
+                <ContactLink href="mailto:gta_rent@gmail.com">
+                  gta_rent@gmail.com
+                </ContactLink>
               </li>
               <li>
-                <StyledNavLink to="/catalog">Catalog</StyledNavLink>
+                <ContactLink href="+380730000000">
+                  +38(073)000-00-00
+                </ContactLink>
               </li>
-              <li>
-                <StyledNavLink to="/favorites">Favorites</StyledNavLink>
-              </li>
-            </ListNav>
-          </Nav>
-          <ContactList>
-            <li>
-              <ContactLink href="mailto:gta_rent@gmail.com">gta_rent@gmail.com</ContactLink>
-            </li>
-            <li>
-              <ContactLink href="tel:+31234567890">+3(123)456-78-90</ContactLink>
-            </li>
-          </ContactList>
+            </ContactList>
+          </ContainerHeader>
         </Container>
       </Header>
       <main>

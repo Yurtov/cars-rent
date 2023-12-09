@@ -14,9 +14,11 @@ export const Header = styled.header`
 
 export const Container = styled.div`
   margin: 0 auto;
-  width: 1280px;
-  padding-left: 100px;
-  padding-right: 100px;
+  width: 1204px;
+  padding: 0 10px;
+`;
+
+export const ContainerHeader = styled.div`
   font-size: 24px;
   font-weight: 600;
   display: flex;
@@ -39,7 +41,11 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 900;
   -webkit-text-stroke: 0.3px #121417;
   text-shadow: 1px 1px 1px #121417;
-
+  &:hover,
+  :focus {
+    color: #121417;
+    text-shadow: none;
+  }
   &.active {
     color: #121417;
     -webkit-text-stroke: 0.3px #ffffff;
@@ -49,7 +55,7 @@ export const StyledNavLink = styled(NavLink)`
 export const ContactList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 10px;  
+  gap: 10px;
   font-size: 18px;
   font-style: italic;
 `;
@@ -57,4 +63,8 @@ export const ContactList = styled.ul`
 export const ContactLink = styled.a`
   text-decoration: none;
   color: #ffffff;
+  &:hover,
+  :focus {
+    color: #121417;
+  }
 `;
