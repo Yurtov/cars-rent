@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { selectAdverst } from '../../redux/adverts/selectors';
+import { selectAdverst, selectIsLoading } from '../../redux/adverts/selectors';
 import { fetchAdverts } from '../../redux/adverts/operations';
 import { AdvertsListItem } from 'components/AdverstListItem/AdverstListItem';
-import { Advert } from './AdvertsList.styled';
+import { AdvertsListStyled, Advert } from './AdvertsList.styled';
 
 export const AdvertsList = () => {
   const adverts = useSelector(selectAdverst);
-  // const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const AdvertsList = () => {
 
   return (
     <div>
-      <AdvertsList>
+      <AdvertsListStyled>
         {adverts.length !== 0 ? (
           adverts.map(advert => (
             <Advert key={advert.id}>
@@ -27,7 +27,7 @@ export const AdvertsList = () => {
         ) : (
           <div>Not found</div>
         )}
-      </AdvertsList>
+      </AdvertsListStyled>
       <button>Load more</button>
     </div>
   );

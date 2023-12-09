@@ -8,7 +8,6 @@ const Catalog = () => {
     <Container>
       <SearchForm />
       <AdvertsList />
-
       <Footer />
     </Container>
   );

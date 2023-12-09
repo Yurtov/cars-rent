@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AdvertsList = styled.li`
+export const AdvertsListStyled = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 29px;

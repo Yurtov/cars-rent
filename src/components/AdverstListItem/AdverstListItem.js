@@ -15,7 +15,7 @@ export const AdvertsListItem = ({ advert }) => {
         </p>
         <p>{advert.rentalPrice}</p>
       </TitleAdvert>
-      <ul>
+      {/* <ul>
         <li>{city}</li>
         <li>{country}</li>
         <li>{advert.rentalCompany}</li>
@@ -23,7 +23,7 @@ export const AdvertsListItem = ({ advert }) => {
         <li>{advert.model}</li>
         <li>{advert.id}</li>
         <li>{advert.functionalities[0]}</li>
-      </ul>
+      </ul> */}
     </div>
   );
 };
