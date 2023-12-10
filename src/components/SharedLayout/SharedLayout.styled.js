@@ -16,6 +16,7 @@ export const Container = styled.div`
   margin: 0 auto;
   width: 1204px;
   padding: 0 10px;
+  font-family: 'Manrope';
 `;
 
 export const ContainerHeader = styled.div`
@@ -23,6 +24,7 @@ export const ContainerHeader = styled.div`
   font-weight: 600;
   display: flex;
   align-items: center;
+  font-family: apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
 `;
 
 export const Nav = styled.nav`

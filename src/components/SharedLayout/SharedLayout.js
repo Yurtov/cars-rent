@@ -45,7 +45,7 @@ export const SharedLayout = () => {
                 </ContactLink>
               </li>
               <li>
-                <ContactLink href="+380730000000">
+                <ContactLink href="tel:+380730000000">
                   +38(073)000-00-00
                 </ContactLink>
               </li>
@@ -54,9 +54,11 @@ export const SharedLayout = () => {
         </Container>
       </Header>
       <main>
+        <Container>
         <Suspense fallback="loading...">
           <Outlet />
         </Suspense>
+        </Container>
       </main>
     </div>
   );

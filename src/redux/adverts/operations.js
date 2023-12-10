@@ -8,7 +8,6 @@ export const fetchAdverts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/adverts');
-      console.log('Adverts fetched successfully:', response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -16,10 +15,6 @@ export const fetchAdverts = createAsyncThunk(
   }
 );
 
-export const fetchAdvertsById = async id => {
-  const response = await axios.get(`/adverts/${id}`);
-  return response.data;
-};
 
 export const fetchSearchAdverts = async (page, query) => {
   const response = await axios.get(`/adverts`, {
