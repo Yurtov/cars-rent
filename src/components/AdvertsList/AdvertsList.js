@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { selectAdverst, selectIsLoading } from '../../redux/adverts/selectors';
+import { selectAdverst } from '../../redux/adverts/selectors';
 import { fetchAdverts } from '../../redux/adverts/operations';
 import { AdvertsListItem } from 'components/AdverstListItem/AdverstListItem';
-import { AdvertsListStyled, Advert, StyledButton } from './AdvertsList.styled';
+import { AdvertsListStyled, Advert, StyledButton, ButtonLoadMore,  } from './AdvertsList.styled';
 import Modal from 'react-modal';
 import { ModalAdvert } from 'components/ModalAdvert/ModalAdvert';
 
@@ -58,7 +58,7 @@ export const AdvertsList = () => {
           <div>Not found</div>
         )}
       </AdvertsListStyled>
-      <button>Load more</button>
+      <ButtonLoadMore>Load more</ButtonLoadMore>
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}

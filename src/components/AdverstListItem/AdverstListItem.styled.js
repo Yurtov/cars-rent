@@ -27,7 +27,8 @@ export const StyledList = styled.ul`
 
 export const StyledListItem = styled.li`
   padding: 0 6px;
-  border-right: 1px solid #000;
+  color: rgba(18, 20, 23, 0.5);
+  border-right: 1px solid rgba(18, 20, 23, 0.1);
   &:first-child {
     padding-left: 0;
   }

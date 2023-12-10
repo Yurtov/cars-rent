@@ -12,7 +12,6 @@ export const AdvertsListItem = ({ advert }) => {
   const city = addressParts[1];
   const country = addressParts[2];
   const functionalities = advert.functionalities[0];
-  console.log(functionalities);
   const functionalitiesСropped = functionalities.split(' ').slice(0, 2).join(' ')
 
 
