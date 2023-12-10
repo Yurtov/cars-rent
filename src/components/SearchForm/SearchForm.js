@@ -19,13 +19,13 @@ export const SearchForm = () => {
     >
       <Form>
         <div>
-          <label htmlFor="carBrand">Марка автомобиля</label>
+          <label htmlFor="carBrand">Car brand</label>
           <Field
             as="select"
             id="carBrand"
             name="carBrand"
           >
-            <option value="" label="Введите текст" />
+            <option value="" label="Enter the text" />
             {carBrands.map(brand => (
               <option key={brand} value={brand} label={brand} />
             ))}
@@ -33,38 +33,41 @@ export const SearchForm = () => {
         </div>
 
         <div>
-          <label htmlFor="price">Цена за 1 час</label>
-          <Field
-            as="select"
-            id="price"
-            name="price"
-          >
-            <option value="" label="До $" />
-            {priceOptions.map(price => (
-              <option key={price} value={price} label={`${price}`} />
-            ))}
-          </Field>
-        </div>
+            <label htmlFor="price">Price/ 1 hour</label>
+            <Field
+              as="select"
+              id="price"
+              name="price"
+            >
+              <option value="" label="To $" />
+              {priceOptions.map(price => (
+                <option key={price} value={price} label={`${price}`} />
+              ))}
+            </Field>
+          </div>
+
 
         <div>
-          <label htmlFor="mileage.from">Пробег автомобиля (От)</label>
+          <label htmlFor="mileage.from">Сar mileage / km</label>
           <Field
             type="text"
             id="mileage.from"
             name="mileage.from"
-            placeholder="Введите пробег от"
+            placeholder="From"
           />
         </div>
 
         <div>
-          <label htmlFor="mileage.to">Пробег автомобиля (До)</label>
+          <label htmlFor="mileage.to"></label>
           <Field
             type="text"
             id="mileage.to"
             name="mileage.to"
-            placeholder="Введите пробег до"
+            placeholder="To"
           />
         </div>
+        
+      
 
         <button type="submit">Отправить</button>
       </Form>
