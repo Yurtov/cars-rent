@@ -3,9 +3,7 @@ import makes from '../../data/makes.json'
 
 export const SearchForm = () => {
   const carBrands = makes.sort((a, b) => a.localeCompare(b))
-  const priceOptions = Array.from({ length: 10 }, (_, index) => (index + 1) * 10);
-
-  console.log(carBrands);
+  const priceOptions = Array.from({ length: 50 }, (_, index) => (index + 1) * 10);
 
   return (
     <Formik
@@ -43,7 +41,7 @@ export const SearchForm = () => {
           >
             <option value="" label="До $" />
             {priceOptions.map(price => (
-              <option key={price} value={price} label={`$${price}`} />
+              <option key={price} value={price} label={`${price}`} />
             ))}
           </Field>
         </div>
