@@ -17,6 +17,7 @@ export const Container = styled.div`
   width: 1204px;
   padding: 0 10px;
   font-family: 'Manrope';
+  color: #121417;
 `;
 
 export const ContainerHeader = styled.div`
@@ -24,7 +25,8 @@ export const ContainerHeader = styled.div`
   font-weight: 600;
   display: flex;
   align-items: center;
-  font-family: apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 `;
 
 export const Nav = styled.nav`

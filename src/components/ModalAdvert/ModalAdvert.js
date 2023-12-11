@@ -1,3 +1,19 @@
+import {
+  BtnClose,
+  ConditionsList,
+  Img,
+  ColorAccent,
+  StyledListItemModal,
+  StyledListModal,
+  SvgClose,
+  Text,
+  Title,
+  TitleH4,
+  ConditionsListItem,
+  LinkCall,
+  MoadalContainer,
+} from './ModalAdvert.styled';
+
 export const ModalAdvert = ({ advert, closeModal }) => {
   const address = advert.address;
   const addressParts = address.split(', ');
@@ -6,6 +22,8 @@ export const ModalAdvert = ({ advert, closeModal }) => {
   const rentalCondition = advert.rentalConditions;
   const rentalConditionParts = rentalCondition.split('\n');
   const minAge = rentalConditionParts[0];
+  const minAgeParts = minAge.split(': ');
+  const age = minAgeParts[1];
   const licence = rentalConditionParts[1];
   const depositOrInsurance = rentalConditionParts[2];
   const mileageWithComma = advert.mileage
@@ -14,39 +32,67 @@ export const ModalAdvert = ({ advert, closeModal }) => {
   const price = advert.rentalPrice.replace('$', '');
 
   return (
-    <>
-      <button type="button" onClick={closeModal}>
-        bac
-      </button>
-      <img src={advert.img} alt="car" width="461" height="248" loading="lazy"></img>
-      <h3>
-        {advert.make} {advert.model}, {advert.year}
-      </h3>
-      <ul>
-        <li>{city}</li>
-        <li>{country}</li>
-        <li>{advert.rentalCompany}</li>
-        <li>{advert.type}</li>
-        <li>{advert.model}</li>
-        <li>{advert.id}</li>
-        <li>{advert.functionalities[0]}</li>
-      </ul>
-      <p>{advert.description}</p>
-      <p>Accessories and functionalities:</p>
-      <ul>
+    <MoadalContainer>
+      <BtnClose type="button" onClick={closeModal}>
+        <SvgClose width="24" height="24">
+          <use href="/src/images/x.svg"></use>
+        </SvgClose>
+      </BtnClose>
+      <Img
+        src={advert.img}
+        alt="car"
+        width="461"
+        height="248"
+        loading="lazy"
+      ></Img>
+      <Title>
+        {advert.make} <ColorAccent>{advert.model}</ColorAccent>, {advert.year}
+      </Title>
+      <StyledListModal>
+        <StyledListItemModal>{city}</StyledListItemModal>
+        <StyledListItemModal>{country}</StyledListItemModal>
+        <StyledListItemModal>{advert.rentalCompany}</StyledListItemModal>
+        <StyledListItemModal>{advert.type}</StyledListItemModal>
+        <StyledListItemModal>{advert.model}</StyledListItemModal>
+        <StyledListItemModal>{advert.id}</StyledListItemModal>
+        <StyledListItemModal>{advert.functionalities[0]}</StyledListItemModal>
+        <StyledListItemModal>
+          Fuel consumption: {advert.fuelConsumption}
+        </StyledListItemModal>
+        <StyledListItemModal>
+          Engine Size: {advert.engineSize}
+        </StyledListItemModal>
+      </StyledListModal>
+      <Text>{advert.description}</Text>
+      <TitleH4>Accessories and functionalities:</TitleH4>
+      <StyledListModal>
         {advert.accessories.map(accessories => (
-          <li key={accessories}>{accessories}</li>
+          <StyledListItemModal key={accessories}>
+            {accessories}
+          </StyledListItemModal>
         ))}
-      </ul>
-      <p>Rental Conditions:</p>
-      <ul>
-        <li>{minAge}</li>
-        <li>{licence}</li>
-        <li>{depositOrInsurance}</li>
-        <li>Mileage: {mileageWithComma}</li>
-        <li>Price: {price}$</li>
-      </ul>
-      <a href="tel:+380730000000">Rental car</a>
-    </>
+        {advert.functionalities.map(functionalite => (
+          <StyledListItemModal key={functionalite}>
+            {functionalite}
+          </StyledListItemModal>
+        ))}
+      </StyledListModal>
+      <TitleH4>Rental Conditions:</TitleH4>
+      <ConditionsList>
+        <ConditionsListItem>
+          Minimum age : <ColorAccent>{age}</ColorAccent>
+        </ConditionsListItem>
+        <ConditionsListItem>{licence}</ConditionsListItem>
+        <ConditionsListItem>{depositOrInsurance}</ConditionsListItem>
+        <ConditionsListItem>
+          Mileage: <ColorAccent>{mileageWithComma}</ColorAccent>
+        </ConditionsListItem>
+        <ConditionsListItem>
+          Price: <ColorAccent>{price}$</ColorAccent>
+        </ConditionsListItem>
+      </ConditionsList>
+
+      <LinkCall href="tel:+380730000000">Rental car</LinkCall>
+    </MoadalContainer>
   );
 };

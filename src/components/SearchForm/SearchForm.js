@@ -1,9 +1,37 @@
-import { Formik, Field, Form} from 'formik';
-import makes from '../../data/makes.json'
+import { Formik, Field } from 'formik';
+import { useDispatch } from 'react-redux';
+import { fetchSearchAdverts } from '../../redux/adverts/operations';
+import makes from '../../data/makes.json';
+import {
+  Button,
+  Div,
+  StyledLabel,
+  StyledForm,
+  StyledField,
+  InputMileage,
+} from './SearchForm.styled';
 
 export const SearchForm = () => {
-  const carBrands = makes.sort((a, b) => a.localeCompare(b))
-  const priceOptions = Array.from({ length: 50 }, (_, index) => (index + 1) * 10);
+  const dispatch = useDispatch();
+
+  const carBrands = makes.sort((a, b) => a.localeCompare(b));
+  const priceOptions = Array.from(
+    { length: 50 },
+    (_, index) => (index + 1) * 10
+  );
+
+  const onSubmit = values => {
+    const params = {
+      make: values.carBrand,
+      rentalPrice: values.price,
+      mileage: {
+        from: values.mileage.from,
+        to: values.mileage.to,
+      },
+    };
+
+    dispatch(fetchSearchAdverts(params));
+  };
 
   return (
     <Formik
@@ -14,63 +42,73 @@ export const SearchForm = () => {
           from: '',
           to: '',
         },
-        // onSubmit={onSubmit}
       }}
+      onSubmit={onSubmit}
     >
-      <Form>
-        <div>
-          <label htmlFor="carBrand">Car brand</label>
+      <StyledForm>
+        <Div>
+          <StyledLabel htmlFor="carBrand">Car brand</StyledLabel>
           <Field
             as="select"
             id="carBrand"
             name="carBrand"
+            style={{
+              padding: '14px 18px',
+              border: 'none',
+              fontSize: '18px',
+              color: '#121417',
+              backgroundColor: '#f7f7fb',
+            }}
           >
             <option value="" label="Enter the text" />
             {carBrands.map(brand => (
               <option key={brand} value={brand} label={brand} />
             ))}
           </Field>
-        </div>
+        </Div>
 
-        <div>
-            <label htmlFor="price">Price/ 1 hour</label>
-            <Field
-              as="select"
-              id="price"
-              name="price"
-            >
-              <option value="" label="To $" />
-              {priceOptions.map(price => (
-                <option key={price} value={price} label={`${price}`} />
-              ))}
-            </Field>
-          </div>
-
-
-        <div>
-          <label htmlFor="mileage.from">Сar mileage / km</label>
+        <Div>
+          <StyledLabel htmlFor="price">Price/ 1 hour</StyledLabel>
           <Field
-            type="text"
-            id="mileage.from"
-            name="mileage.from"
-            placeholder="From"
-          />
-        </div>
+            as="select"
+            id="price"
+            name="price"
+            style={{
+              padding: '14px 18px',
+              border: 'none',
+              fontSize: '18px',
+              color: '#121417',
+              backgroundColor: '#f7f7fb',
+            }}
+          >
+            <option value="" label="To $" />
+            {priceOptions.map(price => (
+              <option key={price} value={price} label={`${price}`} />
+            ))}
+          </Field>
+        </Div>
 
-        <div>
-          <label htmlFor="mileage.to"></label>
-          <Field
-            type="text"
-            id="mileage.to"
-            name="mileage.to"
-            placeholder="To"
-          />
-        </div>
-        
-      
+        <Div>
+          <StyledLabel htmlFor="mileage.from">Сar mileage / km</StyledLabel>
+          <InputMileage>
+            <StyledField
+              type="text"
+              id="mileage.from"
+              name="mileage.from"
+              placeholder="From"
+            />
 
-        <button type="submit">Отправить</button>
-      </Form>
+            <StyledField
+              type="text"
+              id="mileage.to"
+              name="mileage.to"
+              placeholder="To"
+            />
+          </InputMileage>
+        </Div>
+
+        <Button type="submit">Search</Button>
+      </StyledForm>
     </Formik>
   );
 };

@@ -39,6 +39,10 @@ export const ButtonLoadMore = styled.button`
   background-color: inherit;
   color: #3470ff;
   font-size: 16px;
-  text-decoration: underline; 
+  text-decoration: underline;
   cursor: pointer;
+  &:hover,
+  :focus {
+    color: #0b44cd;
+  }
 `;

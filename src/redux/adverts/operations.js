@@ -7,7 +7,12 @@ export const fetchAdverts = createAsyncThunk(
   'adverts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/adverts');
+      const response = await axios.get('/adverts', {
+        params: {
+          page: 1,
+          limit: 12,
+        },
+      });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -15,14 +20,34 @@ export const fetchAdverts = createAsyncThunk(
   }
 );
 
+export const fetchLoadMoreAdverts = createAsyncThunk(
+  'adverts/fetchLoadMore',
+  async (params, thunkAPI) => {
+    try {
+      const response = await axios.get('/adverts', {
+        params: {
+          page: params,
+          limit: 12,
+        },
+      });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
-export const fetchSearchAdverts = async (page, query) => {
-  const response = await axios.get(`/adverts`, {
-    params: {
-      include_adult: false,
-      query: query,
-      page: page,
-    },
-  });
-  return response.data;
-};
+export const fetchSearchAdverts = createAsyncThunk(
+  'adverts/fetchByParams',
+  async (query, thunkAPI) => {
+    try {
+      const response = await axios.get(`/adverts`, {
+        params: query,
+      });
+
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
