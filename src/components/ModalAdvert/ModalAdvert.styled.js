@@ -20,10 +20,6 @@ export const BtnClose = styled.button`
   outline: none;
 `;
 
-export const SvgClose = styled.svg`
-  fill: currentColor;
-`;
-
 export const Img = styled.img`
   width: 461px;
   height: 248px;

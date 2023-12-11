@@ -1,3 +1,4 @@
+import { AiOutlineClose } from 'react-icons/ai';
 import {
   BtnClose,
   ConditionsList,
@@ -34,10 +35,9 @@ export const ModalAdvert = ({ advert, closeModal }) => {
   return (
     <MoadalContainer>
       <BtnClose type="button" onClick={closeModal}>
-        <SvgClose width="24" height="24">
-          <use href="/src/images/x.svg"></use>
-        </SvgClose>
+        <AiOutlineClose size={24} />
       </BtnClose>
+
       <Img
         src={advert.img}
         alt="car"
