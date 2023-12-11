@@ -1,5 +1,22 @@
 import styled from 'styled-components';
 
+export const DivListItem = styled.div`
+  position: relative;
+`;
+
+export const BtnFavorite = styled.button`
+  background-color: inherit;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  outline: none;
+`;
+
 export const Image = styled.img`
   width: 274px;
   height: 268px;
