@@ -40,7 +40,7 @@ export const AdvertsList = () => {
   const [params, setParams] = useState(2);
 
   useEffect(() => {
-    dispatch(fetchAdverts(params));
+    dispatch(fetchAdverts());
   }, [dispatch]);
 
   const heandleLoadMore = () => {
