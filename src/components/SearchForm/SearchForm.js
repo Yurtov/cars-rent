@@ -1,6 +1,9 @@
 import { Formik, Field } from 'formik';
 import { useDispatch } from 'react-redux';
-import { fetchSearchAdverts } from '../../redux/adverts/operations';
+import {
+  fetchAdverts,
+  fetchSearchAdverts,
+} from '../../redux/adverts/operations';
 import makes from '../../data/makes.json';
 import {
   Button,
@@ -10,9 +13,20 @@ import {
   StyledField,
   InputMileage,
 } from './SearchForm.styled';
+import { useState } from 'react';
 
 export const SearchForm = () => {
+  const [paramsObject, setParamsObject] = useState(null);
   const dispatch = useDispatch();
+
+  const initialValues = {
+    carBrand: '',
+    price: '',
+    mileage: {
+      from: '',
+      to: '',
+    },
+  };
 
   const carBrands = makes.sort((a, b) => a.localeCompare(b));
   const priceOptions = Array.from(
@@ -29,22 +43,19 @@ export const SearchForm = () => {
         to: values.mileage.to,
       },
     };
+    setParamsObject(params);
 
     dispatch(fetchSearchAdverts(params));
   };
 
+  const heandleReset = () => {
+    // // resetValues(initialValues);
+    setParamsObject(null);
+    dispatch(fetchAdverts());
+  };
+
   return (
-    <Formik
-      initialValues={{
-        carBrand: '',
-        price: '',
-        mileage: {
-          from: '',
-          to: '',
-        },
-      }}
-      onSubmit={onSubmit}
-    >
+    <Formik initialValues={initialValues} onSubmit={onSubmit}>
       <StyledForm>
         <Div>
           <StyledLabel htmlFor="carBrand">Car brand</StyledLabel>
@@ -108,6 +119,12 @@ export const SearchForm = () => {
         </Div>
 
         <Button type="submit">Search</Button>
+
+        {paramsObject && (
+          <Button type="button" onClick={heandleReset}>
+            Reset
+          </Button>
+        )}
       </StyledForm>
     </Formik>
   );
