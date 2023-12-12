@@ -44,6 +44,7 @@ const Favorites = () => {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         style={customStyles}
+        ariaHideApp={false}
       >
         <ModalAdvert advert={selectedAdvert} closeModal={closeModal} />
       </Modal>
