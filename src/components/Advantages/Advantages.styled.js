@@ -29,5 +29,6 @@ export const ListItemAdvantagesTitle = styled.h3`
 
 export const ListItemAdvantagesText = styled.p`
   margin-top: 20px;
+  font-size: 18px;
   font-style: italic;
 `;

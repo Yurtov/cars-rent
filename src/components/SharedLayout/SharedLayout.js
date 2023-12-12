@@ -1,3 +1,4 @@
+import { Footer } from 'components/Footer/Footer';
 import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import {
@@ -55,11 +56,12 @@ export const SharedLayout = () => {
       </Header>
       <main>
         <Container>
-        <Suspense fallback="loading...">
-          <Outlet />
-        </Suspense>
+          <Suspense fallback="loading...">
+            <Outlet />
+          </Suspense>
         </Container>
       </main>
+      <Footer/>
     </div>
   );
 };

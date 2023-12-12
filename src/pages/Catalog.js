@@ -1,5 +1,4 @@
 import { AdvertsList } from 'components/AdvertsList/AdvertsList';
-import { Footer } from 'components/Footer/Footer';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 
 const Catalog = () => {
@@ -7,7 +6,6 @@ const Catalog = () => {
     <>
       <SearchForm />
       <AdvertsList />
-      <Footer />
     </>
   );
 };

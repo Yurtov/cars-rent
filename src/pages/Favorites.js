@@ -38,7 +38,7 @@ const Favorites = () => {
 
   return (
     <div>
-      <AdvertsListComponet adverts={favoritesAdvers} openModal={openModal}/>
+      <AdvertsListComponet adverts={favoritesAdvers} openModal={openModal} />
 
       <Modal
         isOpen={isModalOpen}
