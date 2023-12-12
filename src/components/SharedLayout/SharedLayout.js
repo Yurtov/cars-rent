@@ -1,6 +1,7 @@
 import { Footer } from 'components/Footer/Footer';
 import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import ScrollToTop from 'react-scroll-to-top';
 import {
   ContactLink,
   ContactList,
@@ -59,6 +60,7 @@ export const SharedLayout = () => {
           <Suspense fallback="loading...">
             <Outlet />
           </Suspense>
+          <ScrollToTop smooth />
         </Container>
       </main>
       <Footer/>
