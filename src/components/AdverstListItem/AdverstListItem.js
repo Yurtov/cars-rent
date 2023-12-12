@@ -17,9 +17,10 @@ import {
 } from './AdverstListItem.styled';
 
 export const AdvertsListItem = ({ advert }) => {
-  const [favorite, setFavorite] = useState(false);
+  // const [favorite, setFavorite] = useState(false);
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
+
   const address = advert.address;
   const addressParts = address.split(', ');
   const city = addressParts[1];
@@ -30,20 +31,22 @@ export const AdvertsListItem = ({ advert }) => {
     .slice(0, 2)
     .join(' ');
 
-  const addToFavorits = () => {
-    if (!favorite) {
-      setFavorite(true);
+  const addToFavorits = e => {
+    // const favoriteId = e.currentTarget.id;
+    // console.log(favorites.some(advert.id));
+    if (!favorites.some(favorit => favorit.id === advert.id)) {
+      // setFavorite(true);
       dispatch(addFavorites(advert));
     } else {
-      setFavorite(false);
+      // setFavorite(false);
       dispatch(deleteFavorites(advert.id));
     }
   };
 
   return (
     <DivListItem>
-      <BtnFavorite onClick={addToFavorits}>
-        {!favorite ? (
+      <BtnFavorite onClick={addToFavorits} >
+        {!favorites.some(favorit => favorit.id === advert.id) ? (
           <FaRegHeart size={18} color="#FFFFFF" />
         ) : (
           <FaHeart size={18} color="#3470FF" />
