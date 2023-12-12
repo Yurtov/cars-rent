@@ -6,6 +6,7 @@ export const SectionHero = styled.section`
   background-image: url('https://i.ibb.co/7jRV5w7/image.jpg');
   background-size: cover;
   color: #ffffff;
+  border-radius: 15px;
 `;
 
 export const TitleHero = styled.h1`
