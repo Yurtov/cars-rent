@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Modal from 'react-modal';
 import { selectAdverst } from '../../redux/adverts/selectors';
 import {
   fetchAdverts,
@@ -8,7 +9,6 @@ import {
 import {
   ButtonLoadMore,
 } from './AdvertsList.styled';
-import Modal from 'react-modal';
 import { ModalAdvert } from 'components/ModalAdvert/ModalAdvert';
 import { AdvertsListComponet } from 'components/AdvertsListComponent/AdvertsListComponent';
 
