@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from '../../redux/adverts/selectors';
@@ -17,7 +16,6 @@ import {
 } from './AdverstListItem.styled';
 
 export const AdvertsListItem = ({ advert }) => {
-  // const [favorite, setFavorite] = useState(false);
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
@@ -32,20 +30,16 @@ export const AdvertsListItem = ({ advert }) => {
     .join(' ');
 
   const addToFavorits = e => {
-    // const favoriteId = e.currentTarget.id;
-    // console.log(favorites.some(advert.id));
     if (!favorites.some(favorit => favorit.id === advert.id)) {
-      // setFavorite(true);
       dispatch(addFavorites(advert));
     } else {
-      // setFavorite(false);
       dispatch(deleteFavorites(advert.id));
     }
   };
 
   return (
     <DivListItem>
-      <BtnFavorite onClick={addToFavorits} >
+      <BtnFavorite onClick={addToFavorits}>
         {!favorites.some(favorit => favorit.id === advert.id) ? (
           <FaRegHeart size={18} color="#FFFFFF" />
         ) : (
