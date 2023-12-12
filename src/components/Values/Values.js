@@ -1,40 +1,49 @@
+import {
+  ListItemValues,
+  ListValues,
+  SectionValues,
+  Strong,
+  TitleValues,
+  TitleValuesText,
+} from './Values.styled';
+
 export const Values = () => {
   return (
-    <section>
-      <h2>Our Values</h2>
-      <p>
+    <SectionValues>
+      <TitleValues>Our Values</TitleValues>
+      <TitleValuesText>
         At "GTA Rent", we are guided by a set of core values that define who we
         are and how we operate.
-      </p>
+      </TitleValuesText>
 
-      <ul>
-        <li>
+      <ListValues>
+        <ListItemValues>
           <p>
-            <strong>Customer Satisfaction:</strong> Putting our customers' needs
+            <Strong>Customer Satisfaction:</Strong> Putting our customers' needs
             first and ensuring their satisfaction is our top priority.
           </p>
-        </li>
-        <li>
+        </ListItemValues>
+        <ListItemValues>
           <p>
-            <strong>Reliability:</strong> Providing reliable and well-maintained
+            <Strong>Reliability:</Strong> Providing reliable and well-maintained
             vehicles to ensure a safe and comfortable journey for our clients.
           </p>
-        </li>
-        <li>
+        </ListItemValues>
+        <ListItemValues>
           <p>
-            <strong>Transparency:</strong> Operating with transparency in
+            <Strong>Transparency:</Strong> Operating with transparency in
             pricing, terms, and conditions for a trusting relationship with our
             customers.
           </p>
-        </li>
-        <li>
+        </ListItemValues>
+        <ListItemValues>
           <p>
-            <strong>Environmental Responsibility:</strong> Committing to
+            <Strong>Environmental Responsibility:</Strong> Committing to
             environmentally friendly practices in our fleet management and
             operations.
           </p>
-        </li>
-      </ul>
-    </section>
+        </ListItemValues>
+      </ListValues>
+    </SectionValues>
   );
 };
