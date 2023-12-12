@@ -29,4 +29,8 @@ export const LinkFooter = styled.a`
   font-size: 18px;
   font-style: italic;
   font-weight: 900;
+  &:hover,
+  :focus {
+    color: #121417;
+  }
 `;
