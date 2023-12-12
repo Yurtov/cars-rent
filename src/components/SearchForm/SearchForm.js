@@ -49,7 +49,6 @@ export const SearchForm = () => {
   };
 
   const heandleReset = () => {
-    // // resetValues(initialValues);
     setParamsObject(null);
     dispatch(fetchAdverts());
   };
