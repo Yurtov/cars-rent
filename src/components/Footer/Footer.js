@@ -1,7 +1,9 @@
 export const Footer = () => {
   return (
     <footer>
-      <h2>For car rental contact Us</h2>
+      <h2>
+        For car rental contact Us
+      </h2>
       <ul>
         <li>
           <p>Email:</p>
