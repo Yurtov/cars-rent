@@ -11,12 +11,17 @@ export const TitleAdvantages = styled.h2`
 `;
 
 export const ListAdvantages = styled.ul`
+  margin-top: 20px;
   text-align: center;
   display: flex;
   gap: 30px;
 `;
 
 export const ListItemAdvantages = styled.li`
+  background-color: rgb(112, 167, 255, 0.2);
+  border-radius: 14px;
+  height: 300px;
+  padding: 20px;
   width: 100%;
   &:nth-child(2) {
     margin-top: 50px;
