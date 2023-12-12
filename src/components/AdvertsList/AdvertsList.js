@@ -5,15 +5,12 @@ import {
   fetchAdverts,
   fetchLoadMoreAdverts,
 } from '../../redux/adverts/operations';
-import { AdvertsListItem } from 'components/AdverstListItem/AdverstListItem';
 import {
-  AdvertsListStyled,
-  Advert,
-  StyledButton,
   ButtonLoadMore,
 } from './AdvertsList.styled';
 import Modal from 'react-modal';
 import { ModalAdvert } from 'components/ModalAdvert/ModalAdvert';
+import { AdvertsListComponet } from 'components/AdvertsListComponent/AdvertsListComponent';
 
 const customStyles = {
   content: {
@@ -61,20 +58,10 @@ export const AdvertsList = () => {
 
   return (
     <div>
-      <AdvertsListStyled>
-        {adverts.length !== 0 ? (
-          adverts.map(advert => (
-            <Advert key={advert.id}>
-              <AdvertsListItem advert={advert} />
-              <StyledButton type="button" onClick={openModal} id={advert.id}>
-                Learn more
-              </StyledButton>
-            </Advert>
-          ))
-        ) : (
-          <div>Not found</div>
-        )}
-      </AdvertsListStyled>
+      {adverts.length >= 0 ? (<AdvertsListComponet adverts={adverts}  openModal={openModal}/>) : (
+        <div>Oops, somesing go wrong...</div>
+      )}
+
       {adverts.length !== 32 && (
         <ButtonLoadMore onClick={heandleLoadMore}>Load more</ButtonLoadMore>
       )}

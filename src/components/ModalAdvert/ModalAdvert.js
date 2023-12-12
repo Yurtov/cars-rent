@@ -6,7 +6,6 @@ import {
   ColorAccent,
   StyledListItemModal,
   StyledListModal,
-  SvgClose,
   Text,
   Title,
   TitleH4,

@@ -1,5 +1,11 @@
 import { useState } from 'react';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorites } from '../../redux/adverts/selectors';
+import {
+  addFavorites,
+  deleteFavorites,
+} from '../../redux/adverts/favoritesReducer';
 import {
   Image,
   StyledList,
@@ -12,6 +18,8 @@ import {
 
 export const AdvertsListItem = ({ advert }) => {
   const [favorite, setFavorite] = useState(false);
+  const favorites = useSelector(selectFavorites);
+  const dispatch = useDispatch();
   const address = advert.address;
   const addressParts = address.split(', ');
   const city = addressParts[1];
@@ -25,8 +33,10 @@ export const AdvertsListItem = ({ advert }) => {
   const addToFavorits = () => {
     if (!favorite) {
       setFavorite(true);
+      dispatch(addFavorites(advert));
     } else {
       setFavorite(false);
+      dispatch(deleteFavorites(advert.id));
     }
   };
 
