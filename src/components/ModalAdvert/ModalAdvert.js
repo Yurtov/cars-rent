@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import {
   BtnClose,
@@ -15,6 +16,8 @@ import {
 } from './ModalAdvert.styled';
 
 export const ModalAdvert = ({ advert, closeModal }) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(true);
+
   const address = advert.address;
   const addressParts = address.split(', ');
   const city = addressParts[1];
@@ -31,19 +34,39 @@ export const ModalAdvert = ({ advert, closeModal }) => {
     .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   const price = advert.rentalPrice.replace('$', '');
 
+  const handleImageLoad = () => {
+    setIsImageLoaded(true);
+  };
+
+  const handleImageError = () => {
+    setIsImageLoaded(false);
+  };
+
   return (
     <MoadalContainer>
       <BtnClose type="button" onClick={closeModal}>
         <AiOutlineClose size={24} />
       </BtnClose>
 
-      <Img
-        src={advert.img}
-        alt="car"
-        width="461"
-        height="248"
-        loading="lazy"
-      ></Img>
+      {isImageLoaded ? (
+        <Img
+          src={advert.img}
+          alt="car"
+          width="461"
+          height="248"
+          loading="lazy"
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+        />
+      ) : (
+        <Img
+          src="https://i.ibb.co/h9wmRL0/strub.jpg"
+          alt="car-strub"
+          width="461"
+          height="248"
+          loading="lazy"
+        />
+      )}
       <Title>
         {advert.make} <ColorAccent>{advert.model}</ColorAccent>, {advert.year}
       </Title>

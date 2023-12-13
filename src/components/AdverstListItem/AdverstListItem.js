@@ -14,10 +14,12 @@ import {
   BtnFavorite,
   DivListItem,
 } from './AdverstListItem.styled';
+import { useState } from 'react';
 
 export const AdvertsListItem = ({ advert }) => {
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
+  const [isImageLoaded, setIsImageLoaded] = useState(true);
 
   const address = advert.address;
   const addressParts = address.split(', ');
@@ -37,6 +39,14 @@ export const AdvertsListItem = ({ advert }) => {
     }
   };
 
+  const handleImageLoad = () => {
+    setIsImageLoaded(true);
+  };
+
+  const handleImageError = () => {
+    setIsImageLoaded(false);
+  };
+
   return (
     <DivListItem>
       <BtnFavorite onClick={addToFavorits}>
@@ -46,13 +56,25 @@ export const AdvertsListItem = ({ advert }) => {
           <FaHeart size={18} color="#3470FF" />
         )}
       </BtnFavorite>
-      <Image
-        src={advert.img}
-        alt="car"
-        width={274}
-        height={268}
-        loading="lazy"
-      ></Image>
+      {isImageLoaded ? (
+        <Image
+          src={advert.img}
+          alt="car"
+          width={274}
+          height={268}
+          loading="lazy"
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+        />
+      ) : (
+        <Image
+          src="https://i.ibb.co/h9wmRL0/strub.jpg"
+          alt="car-strub"
+          width={274}
+          height={268}
+          loading="lazy"
+        />
+      )}
       <TitleAdvert>
         <p>
           {advert.make} <Model>{advert.model}</Model>, {advert.year}
