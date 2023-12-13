@@ -102,14 +102,14 @@ export const SearchForm = () => {
           <StyledLabel htmlFor="mileage.from">Сar mileage / km</StyledLabel>
           <InputMileage>
             <StyledField
-              type="text"
+              type="number"
               id="mileage.from"
               name="mileage.from"
               placeholder="From"
             />
 
             <StyledField
-              type="text"
+              type="number"
               id="mileage.to"
               name="mileage.to"
               placeholder="To"
@@ -120,7 +120,11 @@ export const SearchForm = () => {
         <Button type="submit">Search</Button>
 
         {paramsObject && (
-          <Button type="button" onClick={heandleReset}>
+          <Button
+            type="button"
+            onClick={heandleReset}
+            style={{ backgroundColor: 'red' }}
+          >
             Reset
           </Button>
         )}
