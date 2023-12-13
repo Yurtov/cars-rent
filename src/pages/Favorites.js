@@ -4,6 +4,7 @@ import { AdvertsListComponet } from 'components/AdvertsListComponent/AdvertsList
 import { useSelector } from 'react-redux';
 import { selectFavorites } from '../redux/adverts/selectors';
 import { ModalAdvert } from 'components/ModalAdvert/ModalAdvert';
+import { FilterFavorites } from 'components/FilterFavorites/FilterFavorites';
 
 const customStyles = {
   content: {
@@ -21,14 +22,16 @@ const customStyles = {
 };
 
 const Favorites = () => {
-  const favoritesAdvers = useSelector(selectFavorites);
+  const favoritesAdverts = useSelector(selectFavorites);
+  const [filterFavoritesAdvert, SetFilterFavoritesAdvert] =
+    useState(favoritesAdverts);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAdvert, setSelectedAdvert] = useState(null);
 
   const openModal = e => {
     const advertId = e.currentTarget.id;
     setIsModalOpen(true);
-    const findedAdvertById = favoritesAdvers.find(
+    const findedAdvertById = favoritesAdverts.find(
       advert => advert.id === Number(advertId)
     );
     setSelectedAdvert(findedAdvertById);
@@ -36,9 +39,28 @@ const Favorites = () => {
 
   const closeModal = () => setIsModalOpen(false);
 
+  const heandleChange = e => {
+    const car = e.target.value;
+    const ModelCar = car.split(' ');
+    if (!car) {
+      return SetFilterFavoritesAdvert(favoritesAdverts);
+    }
+    const filtredModel = favoritesAdverts.find(
+      favorit => favorit.model === ModelCar[1]
+    );
+    SetFilterFavoritesAdvert([filtredModel]);
+  };
+
   return (
     <div>
-      <AdvertsListComponet adverts={favoritesAdvers} openModal={openModal} />
+      <FilterFavorites
+        heandleChange={heandleChange}
+        favoritesAdverts={favoritesAdverts}
+      />
+      <AdvertsListComponet
+        adverts={filterFavoritesAdvert}
+        openModal={openModal}
+      />
 
       <Modal
         isOpen={isModalOpen}
