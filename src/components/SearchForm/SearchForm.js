@@ -43,9 +43,17 @@ export const SearchForm = () => {
         to: values.mileage.to,
       },
     };
-    setParamsObject(params);
-
-    dispatch(fetchSearchAdverts(params));
+    if (
+      params.make !== '' ||
+      params.rentalPrice !== '' ||
+      params.mileage.from !== '' ||
+      params.mileage.to !== ''
+    ) {
+      setParamsObject(params);
+      dispatch(fetchSearchAdverts(params));
+    } else {
+      return;
+    }
   };
 
   const heandleReset = () => {
