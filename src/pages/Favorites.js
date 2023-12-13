@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AdvertsListComponet } from 'components/AdvertsListComponent/AdvertsListComponent';
 import { useSelector } from 'react-redux';
 import { selectFavorites } from '../redux/adverts/selectors';
@@ -27,6 +27,10 @@ const Favorites = () => {
     useState(favoritesAdverts);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAdvert, setSelectedAdvert] = useState(null);
+
+  useEffect(() => {
+    SetFilterFavoritesAdvert(favoritesAdverts);
+  }, [favoritesAdverts]);
 
   const openModal = e => {
     const advertId = e.currentTarget.id;
